@@ -1,0 +1,2472 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MovieL.R},
+  pdfauthor={46504166},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{MovieL.R}
+\author{46504166}
+\date{2020-08-02}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##########################################################}
+\CommentTok{# Create edx set, validation set (final hold-out test set)}
+\CommentTok{##########################################################}
+
+\CommentTok{# Note: this process could take a couple of minutes}
+
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(tidyverse)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.us.r-project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tidyverse
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages ----------------------------------------------------------------- tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.1     v dplyr   1.0.0
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts -------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(caret)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"caret"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.us.r-project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: caret
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'caret'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     lift
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(data.table)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"data.table"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.us.r-project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: data.table
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'data.table'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dplyr':
+## 
+##     between, first, last
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     transpose
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# MovieLens 10M dataset:}
+\CommentTok{# https://grouplens.org/datasets/movielens/10m/}
+\CommentTok{# http://files.grouplens.org/datasets/movielens/ml-10m.zip}
+
+\NormalTok{dl <-}\StringTok{ }\KeywordTok{tempfile}\NormalTok{()}
+\KeywordTok{download.file}\NormalTok{(}\StringTok{"http://files.grouplens.org/datasets/movielens/ml-10m.zip"}\NormalTok{, dl)}
+
+\NormalTok{ratings <-}\StringTok{ }\KeywordTok{fread}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{gsub}\NormalTok{(}\StringTok{"::"}\NormalTok{, }\StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\KeywordTok{readLines}\NormalTok{(}\KeywordTok{unzip}\NormalTok{(dl, }\StringTok{"ml-10M100K/ratings.dat"}\NormalTok{))),}
+                 \DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"userId"}\NormalTok{, }\StringTok{"movieId"}\NormalTok{, }\StringTok{"rating"}\NormalTok{, }\StringTok{"timestamp"}\NormalTok{))}
+
+\NormalTok{movies <-}\StringTok{ }\KeywordTok{str_split_fixed}\NormalTok{(}\KeywordTok{readLines}\NormalTok{(}\KeywordTok{unzip}\NormalTok{(dl, }\StringTok{"ml-10M100K/movies.dat"}\NormalTok{)), }\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{::"}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(movies) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"movieId"}\NormalTok{, }\StringTok{"title"}\NormalTok{, }\StringTok{"genres"}\NormalTok{)}
+
+\CommentTok{# if using R 3.6 or earlier}
+\NormalTok{movies <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(movies) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{movieId =} \KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{levels}\NormalTok{(movieId))[movieId],}
+                                           \DataTypeTok{title =} \KeywordTok{as.character}\NormalTok{(title),}
+                                           \DataTypeTok{genres =} \KeywordTok{as.character}\NormalTok{(genres))}
+\CommentTok{# if using R 4.0 or later}
+\CommentTok{#movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(movieId),}
+ \CommentTok{#                                          title = as.character(title),}
+  \CommentTok{#                                         genres = as.character(genres))}
+
+\NormalTok{movielens <-}\StringTok{ }\KeywordTok{left_join}\NormalTok{(ratings, movies, }\DataTypeTok{by =} \StringTok{"movieId"}\NormalTok{)}
+
+\CommentTok{# Validation set will be 10% of MovieLens data}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{sample.kind=}\StringTok{"Rounding"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in set.seed(1, sample.kind = "Rounding"): non-uniform 'Rounding' sampler
+## used
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# if using R 3.5 or earlier, use `set.seed(1)` instead}
+\NormalTok{test_index <-}\StringTok{ }\KeywordTok{createDataPartition}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ movielens}\OperatorTok{$}\NormalTok{rating, }\DataTypeTok{times =} \DecValTok{1}\NormalTok{, }\DataTypeTok{p =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{list =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{edx <-}\StringTok{ }\NormalTok{movielens[}\OperatorTok{-}\NormalTok{test_index,]}
+\NormalTok{temp <-}\StringTok{ }\NormalTok{movielens[test_index,]}
+
+\CommentTok{# Make sure userId and movieId in validation set are also in edx set}
+\NormalTok{validation <-}\StringTok{ }\NormalTok{temp }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{semi_join}\NormalTok{(edx, }\DataTypeTok{by =} \StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{semi_join}\NormalTok{(edx, }\DataTypeTok{by =} \StringTok{"userId"}\NormalTok{)}
+
+\CommentTok{# Add rows removed from validation set back into edx set}
+\NormalTok{removed <-}\StringTok{ }\KeywordTok{anti_join}\NormalTok{(temp, validation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = c("userId", "movieId", "rating", "timestamp", "title", "genres")
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edx, removed)}
+
+\KeywordTok{rm}\NormalTok{(dl, ratings, movies, test_index, temp, movielens, removed)}
+\CommentTok{#listing all objects }
+\KeywordTok{ls}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "edx"        "validation"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(edx)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9000055       6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(validation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 999999      6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Working with edx library}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(anytime)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"anytime"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: anytime
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(anytime)}
+\KeywordTok{library}\NormalTok{(sjmisc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'sjmisc'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     is_empty
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     replace_na
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tibble':
+## 
+##     add_case
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(scales)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'scales'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     discard
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:readr':
+## 
+##     col_factor
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\CommentTok{#Reviewing the edx dataset}
+\KeywordTok{head}\NormalTok{(edx)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    userId movieId rating timestamp                         title
+## 1:      1     122      5 838985046              Boomerang (1992)
+## 2:      1     185      5 838983525               Net, The (1995)
+## 3:      1     292      5 838983421               Outbreak (1995)
+## 4:      1     316      5 838983392               Stargate (1994)
+## 5:      1     329      5 838983392 Star Trek: Generations (1994)
+## 6:      1     355      5 838984474       Flintstones, The (1994)
+##                           genres
+## 1:                Comedy|Romance
+## 2:         Action|Crime|Thriller
+## 3:  Action|Drama|Sci-Fi|Thriller
+## 4:       Action|Adventure|Sci-Fi
+## 5: Action|Adventure|Drama|Sci-Fi
+## 6:       Children|Comedy|Fantasy
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Reviewing summary of the edx dataset}
+\KeywordTok{summary}\NormalTok{(edx)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      userId         movieId          rating        timestamp        
+##  Min.   :    1   Min.   :    1   Min.   :0.500   Min.   :7.897e+08  
+##  1st Qu.:18124   1st Qu.:  648   1st Qu.:3.000   1st Qu.:9.468e+08  
+##  Median :35738   Median : 1834   Median :4.000   Median :1.035e+09  
+##  Mean   :35870   Mean   : 4122   Mean   :3.512   Mean   :1.033e+09  
+##  3rd Qu.:53607   3rd Qu.: 3626   3rd Qu.:4.000   3rd Qu.:1.127e+09  
+##  Max.   :71567   Max.   :65133   Max.   :5.000   Max.   :1.231e+09  
+##     title              genres         
+##  Length:9000055     Length:9000055    
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Title and genres are both character fields. Will need to further filter genre}
+\CommentTok{#Reviewing the remaining attributes}
+\KeywordTok{str}\NormalTok{(edx)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Classes 'data.table' and 'data.frame':   9000055 obs. of  6 variables:
+##  $ userId   : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ movieId  : num  122 185 292 316 329 355 356 362 364 370 ...
+##  $ rating   : num  5 5 5 5 5 5 5 5 5 5 ...
+##  $ timestamp: int  838985046 838983525 838983421 838983392 838983392 838984474 838983653 838984885 838983707 838984596 ...
+##  $ title    : chr  "Boomerang (1992)" "Net, The (1995)" "Outbreak (1995)" "Stargate (1994)" ...
+##  $ genres   : chr  "Comedy|Romance" "Action|Crime|Thriller" "Action|Drama|Sci-Fi|Thriller" "Action|Adventure|Sci-Fi" ...
+##  - attr(*, ".internal.selfref")=<externalptr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RelYear <-}\StringTok{ }\KeywordTok{substr}\NormalTok{(edx}\OperatorTok{$}\NormalTok{title, }\KeywordTok{nchar}\NormalTok{(edx}\OperatorTok{$}\NormalTok{title)}\OperatorTok{-}\DecValTok{4}\NormalTok{,}\KeywordTok{nchar}\NormalTok{(edx}\OperatorTok{$}\NormalTok{title)}\OperatorTok{-}\DecValTok{1}\NormalTok{) }\CommentTok{#Extract release year of Title}
+\KeywordTok{unique}\NormalTok{(RelYear) }\CommentTok{#Visualy verify if all values are in proper format}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "1992" "1995" "1994" "1993" "1991" "1937" "1970" "1977" "1990" "1996"
+## [11] "1971" "1983" "1989" "1974" "1967" "1984" "1997" "1985" "2000" "1982"
+## [21] "2002" "2003" "2004" "2005" "1976" "1972" "1958" "1942" "1939" "1941"
+## [31] "1950" "1951" "1979" "1955" "1962" "1960" "1980" "1988" "1975" "1987"
+## [41] "1981" "1969" "1998" "1999" "1986" "2001" "1952" "1959" "1946" "1940"
+## [51] "1954" "1949" "1973" "1948" "1933" "1931" "1963" "1922" "1943" "1944"
+## [61] "1957" "1953" "1965" "1978" "1964" "1968" "1966" "1961" "1956" "1935"
+## [71] "1938" "2006" "2007" "1932" "2008" "1934" "1945" "1947" "1927" "1925"
+## [81] "1930" "1936" "1929" "1923" "1928" "1921" "1926" "1915" "1924" "1916"
+## [91] "1917" "1918" "1920" "1919"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{year <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(RelYear)}
+
+
+
+
+\CommentTok{#working with genres column}
+\CommentTok{#find out how max count of Genres for movie by counting occurance of "|"}
+\KeywordTok{max}\NormalTok{(}\KeywordTok{str_count}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres,}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{)) }\CommentTok{# }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(}\KeywordTok{str_count}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres,}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{)}\OperatorTok{==}\DecValTok{7}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(movieId)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 256 x 6
+## # Groups:   movieId [1]
+##    userId movieId rating  timestamp title          genres                       
+##     <int>   <dbl>  <dbl>      <int> <chr>          <chr>                        
+##  1    212   51709    2.5 1185212625 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  2    249   51709    4.5 1186494058 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  3    788   51709    3   1188408080 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  4   1445   51709    0.5 1187016074 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  5   1632   51709    3.5 1183432351 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  6   1724   51709    2.5 1192194859 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  7   1741   51709    2   1199300081 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  8   1805   51709    4   1184219954 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+##  9   1860   51709    3.5 1185544722 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+## 10   2168   51709    3.5 1189148709 Host, The (Gw~ Action|Adventure|Comedy|Dram~
+## # ... with 246 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_filter <-}\StringTok{ }\NormalTok{edx }\OperatorTok{%>%}\StringTok{ }\KeywordTok{separate_rows}\NormalTok{(genres, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{)}
+\NormalTok{g <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(edx_filter}\OperatorTok{$}\NormalTok{genres) }\CommentTok{#total of 20 categories of Genres}
+\NormalTok{edx_final <-}\StringTok{ }\NormalTok{edx }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{genres,}\OperatorTok{-}\NormalTok{timestamp)}
+\NormalTok{edx_final}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          userId movieId rating                         title
+##       1:      1     122    5.0              Boomerang (1992)
+##       2:      1     185    5.0               Net, The (1995)
+##       3:      1     292    5.0               Outbreak (1995)
+##       4:      1     316    5.0               Stargate (1994)
+##       5:      1     329    5.0 Star Trek: Generations (1994)
+##      ---                                                    
+## 9000051:  32620   33140    3.5         Down and Derby (2005)
+## 9000052:  40976   61913    3.0           Africa addio (1966)
+## 9000053:  59269   63141    2.0 Rockin' in the Rockies (1945)
+## 9000054:  60713    4820    2.0  Won't Anybody Listen? (2000)
+## 9000055:  64621   39429    2.5                Confess (2005)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Comedy <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{1}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Romance <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{2}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Action <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{3}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Crime <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{4}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Thriller <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{5}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{6}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{SciFi <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{7}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Adventure <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{8}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Children <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{9}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Fantasy <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{10}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{War <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{11}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Animation <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{12}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Musical <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{13}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Western <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{14}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Mystery <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{15}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{FilmNoir <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{16}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Horror <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{17}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Documentary <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{18}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{IMAX <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{19}\NormalTok{])}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{NoGenres <-}\StringTok{ }\KeywordTok{str_detect}\NormalTok{(edx}\OperatorTok{$}\NormalTok{genres, g[}\DecValTok{20}\NormalTok{])}
+
+\NormalTok{RelYear <-}\StringTok{ }\KeywordTok{substr}\NormalTok{(edx}\OperatorTok{$}\NormalTok{title, }\KeywordTok{nchar}\NormalTok{(edx}\OperatorTok{$}\NormalTok{title)}\OperatorTok{-}\DecValTok{4}\NormalTok{,}\KeywordTok{nchar}\NormalTok{(edx}\OperatorTok{$}\NormalTok{title)}\OperatorTok{-}\DecValTok{1}\NormalTok{) }\CommentTok{#Extract release year of Title}
+\KeywordTok{unique}\NormalTok{(RelYear) }\CommentTok{#Visualy verify if all values are in proper format}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "1992" "1995" "1994" "1993" "1991" "1937" "1970" "1977" "1990" "1996"
+## [11] "1971" "1983" "1989" "1974" "1967" "1984" "1997" "1985" "2000" "1982"
+## [21] "2002" "2003" "2004" "2005" "1976" "1972" "1958" "1942" "1939" "1941"
+## [31] "1950" "1951" "1979" "1955" "1962" "1960" "1980" "1988" "1975" "1987"
+## [41] "1981" "1969" "1998" "1999" "1986" "2001" "1952" "1959" "1946" "1940"
+## [51] "1954" "1949" "1973" "1948" "1933" "1931" "1963" "1922" "1943" "1944"
+## [61] "1957" "1953" "1965" "1978" "1964" "1968" "1966" "1961" "1956" "1935"
+## [71] "1938" "2006" "2007" "1932" "2008" "1934" "1945" "1947" "1927" "1925"
+## [81] "1930" "1936" "1929" "1923" "1928" "1921" "1926" "1915" "1924" "1916"
+## [91] "1917" "1918" "1920" "1919"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{RelYear <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(RelYear)}
+
+\NormalTok{Fdate <-}\StringTok{ }\KeywordTok{anydate}\NormalTok{(edx}\OperatorTok{$}\NormalTok{timestamp)}
+\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Year <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(}\KeywordTok{format}\NormalTok{(Fdate, }\StringTok{"%Y"}\NormalTok{)) }\CommentTok{#Creating a column that will contain Year}
+\CommentTok{#edx_final$Month <- as.factor(format(Fdate, "%m")) #Creating a column that will contain month}
+\KeywordTok{str}\NormalTok{(edx_final)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Classes 'data.table' and 'data.frame':   9000055 obs. of  26 variables:
+##  $ userId     : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ movieId    : num  122 185 292 316 329 355 356 362 364 370 ...
+##  $ rating     : num  5 5 5 5 5 5 5 5 5 5 ...
+##  $ title      : chr  "Boomerang (1992)" "Net, The (1995)" "Outbreak (1995)" "Stargate (1994)" ...
+##  $ Comedy     : logi  TRUE FALSE FALSE FALSE FALSE TRUE ...
+##  $ Romance    : logi  TRUE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Action     : logi  FALSE TRUE TRUE TRUE TRUE FALSE ...
+##  $ Crime      : logi  FALSE TRUE FALSE FALSE FALSE FALSE ...
+##  $ Thriller   : logi  FALSE TRUE TRUE FALSE FALSE FALSE ...
+##  $ Drama      : logi  FALSE FALSE TRUE FALSE TRUE FALSE ...
+##  $ SciFi      : logi  FALSE FALSE TRUE TRUE TRUE FALSE ...
+##  $ Adventure  : logi  FALSE FALSE FALSE TRUE TRUE FALSE ...
+##  $ Children   : logi  FALSE FALSE FALSE FALSE FALSE TRUE ...
+##  $ Fantasy    : logi  FALSE FALSE FALSE FALSE FALSE TRUE ...
+##  $ War        : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Animation  : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Musical    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Western    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Mystery    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ FilmNoir   : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Horror     : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ Documentary: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ IMAX       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ NoGenres   : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ RelYear    : Factor w/ 94 levels "1915","1916",..: 78 81 81 80 80 80 80 80 80 80 ...
+##  $ Year       : Factor w/ 15 levels "1995","1996",..: 2 2 2 2 2 2 2 2 2 2 ...
+##  - attr(*, ".internal.selfref")=<externalptr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(edx_final)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    userId movieId rating                         title Comedy Romance Action
+## 1:      1     122      5              Boomerang (1992)   TRUE    TRUE  FALSE
+## 2:      1     185      5               Net, The (1995)  FALSE   FALSE   TRUE
+## 3:      1     292      5               Outbreak (1995)  FALSE   FALSE   TRUE
+## 4:      1     316      5               Stargate (1994)  FALSE   FALSE   TRUE
+## 5:      1     329      5 Star Trek: Generations (1994)  FALSE   FALSE   TRUE
+## 6:      1     355      5       Flintstones, The (1994)   TRUE   FALSE  FALSE
+##    Crime Thriller Drama SciFi Adventure Children Fantasy   War Animation
+## 1: FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE FALSE     FALSE
+## 2:  TRUE     TRUE FALSE FALSE     FALSE    FALSE   FALSE FALSE     FALSE
+## 3: FALSE     TRUE  TRUE  TRUE     FALSE    FALSE   FALSE FALSE     FALSE
+## 4: FALSE    FALSE FALSE  TRUE      TRUE    FALSE   FALSE FALSE     FALSE
+## 5: FALSE    FALSE  TRUE  TRUE      TRUE    FALSE   FALSE FALSE     FALSE
+## 6: FALSE    FALSE FALSE FALSE     FALSE     TRUE    TRUE FALSE     FALSE
+##    Musical Western Mystery FilmNoir Horror Documentary  IMAX NoGenres RelYear
+## 1:   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE    FALSE    1992
+## 2:   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE    FALSE    1995
+## 3:   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE    FALSE    1995
+## 4:   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE    FALSE    1994
+## 5:   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE    FALSE    1994
+## 6:   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE    FALSE    1994
+##    Year
+## 1: 1996
+## 2: 1996
+## 3: 1996
+## 4: 1996
+## 5: 1996
+## 6: 1996
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{n_distinct}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{userId)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 69878
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{n_distinct}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{movieId)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10677
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Rating distribution}
+\NormalTok{edxRating <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(rating) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{()}
+\NormalTok{edxRating}\OperatorTok{$}\NormalTok{m <-}\StringTok{ }\NormalTok{edxRating}\OperatorTok{$}\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(edxRating}\OperatorTok{$}\NormalTok{n)}
+\KeywordTok{ggplot}\NormalTok{(edxRating, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rating, }\DataTypeTok{y=}\NormalTok{m, }\DataTypeTok{label =} \KeywordTok{percent}\NormalTok{(m))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{'identity'}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"forest green"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{3}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{position_stack}\NormalTok{(}\DataTypeTok{vjust =} \FloatTok{.9}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"% Distribution"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Genre distribution}
+\NormalTok{edxGen <-}\StringTok{ }\NormalTok{edx_filter }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(genres) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{() }
+\NormalTok{edxGen}\OperatorTok{$}\NormalTok{m <-}\StringTok{ }\NormalTok{edxGen}\OperatorTok{$}\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(edxGen}\OperatorTok{$}\NormalTok{n)}
+
+\KeywordTok{ggplot}\NormalTok{(edxGen, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{genres, }\DataTypeTok{y=}\NormalTok{m, }\DataTypeTok{label =} \KeywordTok{percent}\NormalTok{(m), }\DataTypeTok{fill=}\NormalTok{ genres)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{3}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{position_stack}\NormalTok{(}\DataTypeTok{vjust =} \FloatTok{.9}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Distribution"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x=}\KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Genres in descending order}
+\NormalTok{edx_filter }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(genres) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(count))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 20 x 2
+##    genres               count
+##    <chr>                <int>
+##  1 Drama              3910127
+##  2 Comedy             3540930
+##  3 Action             2560545
+##  4 Thriller           2325899
+##  5 Adventure          1908892
+##  6 Romance            1712100
+##  7 Sci-Fi             1341183
+##  8 Crime              1327715
+##  9 Fantasy             925637
+## 10 Children            737994
+## 11 Horror              691485
+## 12 Mystery             568332
+## 13 War                 511147
+## 14 Animation           467168
+## 15 Musical             433080
+## 16 Western             189394
+## 17 Film-Noir           118541
+## 18 Documentary          93066
+## 19 IMAX                  8181
+## 20 (no genres listed)       7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#User distribution}
+\NormalTok{edxUser <-}\StringTok{ }\NormalTok{edx_filter }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(userId) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{()}
+\NormalTok{edxUser}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 69,878 x 2
+## # Groups:   userId [69,878]
+##    userId     n
+##     <int> <int>
+##  1      1    61
+##  2      2    51
+##  3      3    81
+##  4      4   108
+##  5      5   162
+##  6      6   117
+##  7      7   253
+##  8      8  1946
+##  9      9    59
+## 10     10   243
+## # ... with 69,868 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_filter }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(userId) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(n)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{bins =} \DecValTok{100}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"forest green"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{) }\OperatorTok{+}\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Users"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_filter }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(userId)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 69,878 x 2
+##    userId     n
+##     <int> <int>
+##  1      1    61
+##  2      2    51
+##  3      3    81
+##  4      4   108
+##  5      5   162
+##  6      6   117
+##  7      7   253
+##  8      8  1946
+##  9      9    59
+## 10     10   243
+## # ... with 69,868 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(rating }\OperatorTok{>=}\StringTok{ }\DecValTok{3}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(Comedy))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          userId movieId rating                                     title Comedy
+##       1:      1     122      5                          Boomerang (1992)   TRUE
+##       2:      1     355      5                   Flintstones, The (1994)   TRUE
+##       3:      1     356      5                       Forrest Gump (1994)   TRUE
+##       4:      1     370      5 Naked Gun 33 1/3: The Final Insult (1994)   TRUE
+##       5:      1     420      5              Beverly Hills Cop III (1994)   TRUE
+##      ---                                                                       
+## 7418140:  71567    1920      4                     Small Soldiers (1998)  FALSE
+## 7418141:  71567    2028      5                Saving Private Ryan (1998)  FALSE
+## 7418142:  16929   39412      3                Living 'til the End (2005)  FALSE
+## 7418143:  20306   63826      4                           Splinter (2008)  FALSE
+## 7418144:  40976   61913      3                       Africa addio (1966)  FALSE
+##          Romance Action Crime Thriller Drama SciFi Adventure Children Fantasy
+##       1:    TRUE  FALSE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE
+##       2:   FALSE  FALSE FALSE    FALSE FALSE FALSE     FALSE     TRUE    TRUE
+##       3:    TRUE  FALSE FALSE    FALSE  TRUE FALSE     FALSE    FALSE   FALSE
+##       4:   FALSE   TRUE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE
+##       5:   FALSE   TRUE  TRUE     TRUE FALSE FALSE     FALSE    FALSE   FALSE
+##      ---                                                                     
+## 7418140:   FALSE  FALSE FALSE    FALSE FALSE FALSE     FALSE     TRUE    TRUE
+## 7418141:   FALSE   TRUE FALSE    FALSE  TRUE FALSE     FALSE    FALSE   FALSE
+## 7418142:   FALSE  FALSE FALSE    FALSE  TRUE FALSE     FALSE    FALSE   FALSE
+## 7418143:   FALSE   TRUE FALSE     TRUE FALSE FALSE     FALSE    FALSE   FALSE
+## 7418144:   FALSE  FALSE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE
+##            War Animation Musical Western Mystery FilmNoir Horror Documentary
+##       1: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+##       2: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+##       3:  TRUE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+##       4: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+##       5: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+##      ---                                                                    
+## 7418140:  TRUE      TRUE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+## 7418141:  TRUE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+## 7418142: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE
+## 7418143: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE   TRUE       FALSE
+## 7418144: FALSE     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE        TRUE
+##           IMAX NoGenres RelYear Year
+##       1: FALSE    FALSE    1992 1996
+##       2: FALSE    FALSE    1994 1996
+##       3: FALSE    FALSE    1994 1996
+##       4: FALSE    FALSE    1994 1996
+##       5: FALSE    FALSE    1994 1996
+##      ---                            
+## 7418140: FALSE    FALSE    1998 1998
+## 7418141: FALSE    FALSE    1998 1998
+## 7418142: FALSE    FALSE    2005 2008
+## 7418143: FALSE    FALSE    2008 2008
+## 7418144: FALSE    FALSE    1966 2008
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Genre combinations }
+\NormalTok{df_cal <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{190}\NormalTok{, }\DataTypeTok{dimnames =} \KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"genre"}\NormalTok{, }\StringTok{"count"}\NormalTok{))))}
+\NormalTok{df_gen <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{()}
+\NormalTok{df_cnt <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{()}
+\NormalTok{K <-}\StringTok{ }\DecValTok{19}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{5}\OperatorTok{:}\DecValTok{23}\NormalTok{)\{}
+  \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in}\NormalTok{ i}\OperatorTok{+}\DecValTok{1}\OperatorTok{:}\NormalTok{K)\{}
+\NormalTok{  x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(edx_final)[i],}\KeywordTok{colnames}\NormalTok{(edx_final)[j]) }
+\NormalTok{  df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{paste}\NormalTok{(x,}\DataTypeTok{collapse =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{  df_gen <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(df_gen,df)  }
+\NormalTok{  df1 <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final[[i]]}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final[[j]]}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{nrow}\NormalTok{()}
+\NormalTok{  df_cnt <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(df_cnt, df1)}
+\NormalTok{  \}}
+\NormalTok{  K <-}\StringTok{ }\NormalTok{K}\DecValTok{-1}
+\NormalTok{\}}
+
+\KeywordTok{nrow}\NormalTok{(edx_final)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9000055
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_gen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     paste.x..collapse.......
+## 1             Comedy-Romance
+## 2              Comedy-Action
+## 3               Comedy-Crime
+## 4            Comedy-Thriller
+## 5               Comedy-Drama
+## 6               Comedy-SciFi
+## 7           Comedy-Adventure
+## 8            Comedy-Children
+## 9             Comedy-Fantasy
+## 10                Comedy-War
+## 11          Comedy-Animation
+## 12            Comedy-Musical
+## 13            Comedy-Western
+## 14            Comedy-Mystery
+## 15           Comedy-FilmNoir
+## 16             Comedy-Horror
+## 17        Comedy-Documentary
+## 18               Comedy-IMAX
+## 19           Comedy-NoGenres
+## 20            Romance-Action
+## 21             Romance-Crime
+## 22          Romance-Thriller
+## 23             Romance-Drama
+## 24             Romance-SciFi
+## 25         Romance-Adventure
+## 26          Romance-Children
+## 27           Romance-Fantasy
+## 28               Romance-War
+## 29         Romance-Animation
+## 30           Romance-Musical
+## 31           Romance-Western
+## 32           Romance-Mystery
+## 33          Romance-FilmNoir
+## 34            Romance-Horror
+## 35       Romance-Documentary
+## 36              Romance-IMAX
+## 37          Romance-NoGenres
+## 38              Action-Crime
+## 39           Action-Thriller
+## 40              Action-Drama
+## 41              Action-SciFi
+## 42          Action-Adventure
+## 43           Action-Children
+## 44            Action-Fantasy
+## 45                Action-War
+## 46          Action-Animation
+## 47            Action-Musical
+## 48            Action-Western
+## 49            Action-Mystery
+## 50           Action-FilmNoir
+## 51             Action-Horror
+## 52        Action-Documentary
+## 53               Action-IMAX
+## 54           Action-NoGenres
+## 55            Crime-Thriller
+## 56               Crime-Drama
+## 57               Crime-SciFi
+## 58           Crime-Adventure
+## 59            Crime-Children
+## 60             Crime-Fantasy
+## 61                 Crime-War
+## 62           Crime-Animation
+## 63             Crime-Musical
+## 64             Crime-Western
+## 65             Crime-Mystery
+## 66            Crime-FilmNoir
+## 67              Crime-Horror
+## 68         Crime-Documentary
+## 69                Crime-IMAX
+## 70            Crime-NoGenres
+## 71            Thriller-Drama
+## 72            Thriller-SciFi
+## 73        Thriller-Adventure
+## 74         Thriller-Children
+## 75          Thriller-Fantasy
+## 76              Thriller-War
+## 77        Thriller-Animation
+## 78          Thriller-Musical
+## 79          Thriller-Western
+## 80          Thriller-Mystery
+## 81         Thriller-FilmNoir
+## 82           Thriller-Horror
+## 83      Thriller-Documentary
+## 84             Thriller-IMAX
+## 85         Thriller-NoGenres
+## 86               Drama-SciFi
+## 87           Drama-Adventure
+## 88            Drama-Children
+## 89             Drama-Fantasy
+## 90                 Drama-War
+## 91           Drama-Animation
+## 92             Drama-Musical
+## 93             Drama-Western
+## 94             Drama-Mystery
+## 95            Drama-FilmNoir
+## 96              Drama-Horror
+## 97         Drama-Documentary
+## 98                Drama-IMAX
+## 99            Drama-NoGenres
+## 100          SciFi-Adventure
+## 101           SciFi-Children
+## 102            SciFi-Fantasy
+## 103                SciFi-War
+## 104          SciFi-Animation
+## 105            SciFi-Musical
+## 106            SciFi-Western
+## 107            SciFi-Mystery
+## 108           SciFi-FilmNoir
+## 109             SciFi-Horror
+## 110        SciFi-Documentary
+## 111               SciFi-IMAX
+## 112           SciFi-NoGenres
+## 113       Adventure-Children
+## 114        Adventure-Fantasy
+## 115            Adventure-War
+## 116      Adventure-Animation
+## 117        Adventure-Musical
+## 118        Adventure-Western
+## 119        Adventure-Mystery
+## 120       Adventure-FilmNoir
+## 121         Adventure-Horror
+## 122    Adventure-Documentary
+## 123           Adventure-IMAX
+## 124       Adventure-NoGenres
+## 125         Children-Fantasy
+## 126             Children-War
+## 127       Children-Animation
+## 128         Children-Musical
+## 129         Children-Western
+## 130         Children-Mystery
+## 131        Children-FilmNoir
+## 132          Children-Horror
+## 133     Children-Documentary
+## 134            Children-IMAX
+## 135        Children-NoGenres
+## 136              Fantasy-War
+## 137        Fantasy-Animation
+## 138          Fantasy-Musical
+## 139          Fantasy-Western
+## 140          Fantasy-Mystery
+## 141         Fantasy-FilmNoir
+## 142           Fantasy-Horror
+## 143      Fantasy-Documentary
+## 144             Fantasy-IMAX
+## 145         Fantasy-NoGenres
+## 146            War-Animation
+## 147              War-Musical
+## 148              War-Western
+## 149              War-Mystery
+## 150             War-FilmNoir
+## 151               War-Horror
+## 152          War-Documentary
+## 153                 War-IMAX
+## 154             War-NoGenres
+## 155        Animation-Musical
+## 156        Animation-Western
+## 157        Animation-Mystery
+## 158       Animation-FilmNoir
+## 159         Animation-Horror
+## 160    Animation-Documentary
+## 161           Animation-IMAX
+## 162       Animation-NoGenres
+## 163          Musical-Western
+## 164          Musical-Mystery
+## 165         Musical-FilmNoir
+## 166           Musical-Horror
+## 167      Musical-Documentary
+## 168             Musical-IMAX
+## 169         Musical-NoGenres
+## 170          Western-Mystery
+## 171         Western-FilmNoir
+## 172           Western-Horror
+## 173      Western-Documentary
+## 174             Western-IMAX
+## 175         Western-NoGenres
+## 176         Mystery-FilmNoir
+## 177           Mystery-Horror
+## 178      Mystery-Documentary
+## 179             Mystery-IMAX
+## 180         Mystery-NoGenres
+## 181          FilmNoir-Horror
+## 182     FilmNoir-Documentary
+## 183            FilmNoir-IMAX
+## 184        FilmNoir-NoGenres
+## 185       Horror-Documentary
+## 186              Horror-IMAX
+## 187          Horror-NoGenres
+## 188         Documentary-IMAX
+## 189     Documentary-NoGenres
+## 190            IMAX-NoGenres
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_cnt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     X984168L
+## 1     984168
+## 2     510994
+## 3     405812
+## 4     252874
+## 5    1022180
+## 6     241418
+## 7     601925
+## 8     407468
+## 9     466056
+## 10    109052
+## 11    249108
+## 12    216978
+## 13     65688
+## 14     58733
+## 15      2357
+## 16    137271
+## 17     10728
+## 18        66
+## 19         0
+## 20    252165
+## 21    104762
+## 22    245455
+## 23    914034
+## 24     57002
+## 25    159816
+## 26     73508
+## 27    210189
+## 28    119971
+## 29     66395
+## 30    116497
+## 31     18751
+## 32     64947
+## 33      8144
+## 34     20597
+## 35       122
+## 36        43
+## 37         0
+## 38    523187
+## 39   1103291
+## 40    598780
+## 41    846021
+## 42   1155242
+## 43     32109
+## 44    265451
+## 45    208018
+## 46     36663
+## 47     14771
+## 48     69025
+## 49    112122
+## 50      7496
+## 51    166408
+## 52        19
+## 53      2419
+## 54         0
+## 55    730301
+## 56    665413
+## 57     86312
+## 58     91379
+## 59     21230
+## 60     66135
+## 61      8697
+## 62     24025
+## 63      8649
+## 64      6112
+## 65    219831
+## 66     72800
+## 67     81440
+## 68       136
+## 69      2353
+## 70         0
+## 71    840398
+## 72    513613
+## 73    444965
+## 74        62
+## 75    105866
+## 76     29581
+## 77      8085
+## 78      1803
+## 79      6774
+## 80    397735
+## 81     77900
+## 82    395332
+## 83        71
+## 84         0
+## 85         0
+## 86    237298
+## 87    368268
+## 88    116705
+## 89    240200
+## 90    401769
+## 91     63486
+## 92    115213
+## 93     72359
+## 94    259054
+## 95     52811
+## 96    118340
+## 97      2511
+## 98      3738
+## 99         0
+## 100   604053
+## 101    57476
+## 102   111145
+## 103    34196
+## 104    47680
+## 105    11190
+## 106    19289
+## 107    60065
+## 108    20491
+## 109   168580
+## 110        0
+## 111        7
+## 112        0
+## 113   360054
+## 114   424043
+## 115    77587
+## 116   244857
+## 117   102228
+## 118    79159
+## 119    75734
+## 120    19388
+## 121    42593
+## 122      917
+## 123     2106
+## 124        0
+## 125   338490
+## 126     2028
+## 127   391226
+## 128   215529
+## 129     2071
+## 130    16067
+## 131        0
+## 132     1166
+## 133      274
+## 134     2550
+## 135        0
+## 136     5492
+## 137   190981
+## 138   109070
+## 139     5501
+## 140    54203
+## 141     7861
+## 142    81634
+## 143       27
+## 144     1935
+## 145        0
+## 146     3401
+## 147     5922
+## 148    16688
+## 149     1064
+## 150        0
+## 151     1456
+## 152     1381
+## 153        0
+## 154        0
+## 155   183476
+## 156      434
+## 157    13563
+## 158     1103
+## 159     4722
+## 160       83
+## 161     2567
+## 162        0
+## 163     1414
+## 164     1231
+## 165       60
+## 166    12902
+## 167     5564
+## 168     1977
+## 169        0
+## 170     1615
+## 171        0
+## 172     1418
+## 173        0
+## 174        0
+## 175        0
+## 176    48169
+## 177    88662
+## 178       29
+## 179        0
+## 180        0
+## 181      776
+## 182        0
+## 183        0
+## 184        0
+## 185      619
+## 186       10
+## 187        0
+## 188     1819
+## 189        0
+## 190        0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_cal}\OperatorTok{$}\NormalTok{genre <-}\StringTok{ }\NormalTok{df_gen[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{df_cal}\OperatorTok{$}\NormalTok{count <-}\StringTok{ }\NormalTok{df_cnt[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{df_cal }\OperatorTok{%>%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(count)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{top_n}\NormalTok{(}\DecValTok{30}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{genre, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(edx_final), }\DataTypeTok{label=}\KeywordTok{percent}\NormalTok{(count}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(edx_final)), }\DataTypeTok{fill=}\NormalTok{genre))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\CommentTok{#  geom_text(size = 3, position = position_stack(vjust = .9))+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"% Distribution"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x=}\KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Selecting by count
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_cal }\OperatorTok{%>%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(count)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{top_n}\NormalTok{(}\DecValTok{5}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Selecting by count
+\end{verbatim}
+
+\begin{verbatim}
+##              genre   count
+## 1 Action-Adventure 1155242
+## 2  Action-Thriller 1103291
+## 3     Comedy-Drama 1022180
+## 4   Comedy-Romance  984168
+## 5    Romance-Drama  914034
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{###################################################  }
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Adventure}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(rating) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rating, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Action-Adventure"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Thriller}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(rating) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rating, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Action-thriller"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(rating) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rating, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Comedy-Drama"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(rating) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rating, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Comedy-Romance"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(rating) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rating, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Romance-Drama"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-9.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{###################################################}
+
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Adventure}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{RelYear, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Action-Adventure"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1920}\NormalTok{,}\DecValTok{2010}\NormalTok{,}\DecValTok{10}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-10.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Thriller}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{RelYear, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Action-thriller"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1920}\NormalTok{,}\DecValTok{2010}\NormalTok{,}\DecValTok{10}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-11.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{RelYear, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Comedy-Drama"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1920}\NormalTok{,}\DecValTok{2010}\NormalTok{,}\DecValTok{10}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-12.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{RelYear, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Comedy-Romance"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1920}\NormalTok{,}\DecValTok{2010}\NormalTok{,}\DecValTok{10}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-13.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{RelYear, }\DataTypeTok{y=}\NormalTok{count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(count))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Romance-Drama"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1920}\NormalTok{,}\DecValTok{2010}\NormalTok{,}\DecValTok{10}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-14.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{0}\NormalTok{))}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Genre"}\NormalTok{, }\StringTok{"RelYear"}\NormalTok{, }\StringTok{"Count"}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(edxDistyear) <-}\StringTok{ }\NormalTok{x}
+
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Adventure}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Action-Adventure"}\NormalTok{,}\DataTypeTok{Year=}\NormalTok{ AA}\OperatorTok{$}\NormalTok{RelYear, }\DataTypeTok{Count=}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Thriller}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Action-Thriller"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{RelYear, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Comedy-Drama"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{RelYear, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Comedy-Romance"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{RelYear, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Romance-Drama"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{RelYear, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+
+
+\NormalTok{edxDistyear }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{ggplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Year, }\DataTypeTok{y=}\NormalTok{Count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(Count), }\DataTypeTok{color =}\NormalTok{ Genre))}\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1916}\NormalTok{,}\DecValTok{2008}\NormalTok{,}\DecValTok{10}\NormalTok{)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-15.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{######################################################################################}
+\KeywordTok{remove}\NormalTok{(AA,edxDistyear,B)}
+
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Adventure}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Action-Adventure"}\NormalTok{,}\DataTypeTok{Year=}\NormalTok{ AA}\OperatorTok{$}\NormalTok{Year, }\DataTypeTok{Count=}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Action}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Thriller}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Action-Thriller"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{Year, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Comedy-Drama"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{Year, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Comedy}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Comedy-Romance"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{Year, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+\NormalTok{AA <-}\StringTok{ }\NormalTok{edx_final }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(edx_final}\OperatorTok{$}\NormalTok{Romance}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_final}\OperatorTok{$}\NormalTok{Drama}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Genre =} \StringTok{"Romance-Drama"}\NormalTok{, }\DataTypeTok{Year =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{Year, }\DataTypeTok{Count =}\NormalTok{ AA}\OperatorTok{$}\NormalTok{count)}
+\NormalTok{edxDistyear <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(edxDistyear, B)}
+
+
+\NormalTok{edxDistyear }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{ggplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Year, }\DataTypeTok{y=}\NormalTok{Count}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(Count), }\DataTypeTok{color =}\NormalTok{ Genre))}\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1990}\NormalTok{,}\DecValTok{2010}\NormalTok{,}\DecValTok{2}\NormalTok{)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-16.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_gen  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     paste.x..collapse.......
+## 1             Comedy-Romance
+## 2              Comedy-Action
+## 3               Comedy-Crime
+## 4            Comedy-Thriller
+## 5               Comedy-Drama
+## 6               Comedy-SciFi
+## 7           Comedy-Adventure
+## 8            Comedy-Children
+## 9             Comedy-Fantasy
+## 10                Comedy-War
+## 11          Comedy-Animation
+## 12            Comedy-Musical
+## 13            Comedy-Western
+## 14            Comedy-Mystery
+## 15           Comedy-FilmNoir
+## 16             Comedy-Horror
+## 17        Comedy-Documentary
+## 18               Comedy-IMAX
+## 19           Comedy-NoGenres
+## 20            Romance-Action
+## 21             Romance-Crime
+## 22          Romance-Thriller
+## 23             Romance-Drama
+## 24             Romance-SciFi
+## 25         Romance-Adventure
+## 26          Romance-Children
+## 27           Romance-Fantasy
+## 28               Romance-War
+## 29         Romance-Animation
+## 30           Romance-Musical
+## 31           Romance-Western
+## 32           Romance-Mystery
+## 33          Romance-FilmNoir
+## 34            Romance-Horror
+## 35       Romance-Documentary
+## 36              Romance-IMAX
+## 37          Romance-NoGenres
+## 38              Action-Crime
+## 39           Action-Thriller
+## 40              Action-Drama
+## 41              Action-SciFi
+## 42          Action-Adventure
+## 43           Action-Children
+## 44            Action-Fantasy
+## 45                Action-War
+## 46          Action-Animation
+## 47            Action-Musical
+## 48            Action-Western
+## 49            Action-Mystery
+## 50           Action-FilmNoir
+## 51             Action-Horror
+## 52        Action-Documentary
+## 53               Action-IMAX
+## 54           Action-NoGenres
+## 55            Crime-Thriller
+## 56               Crime-Drama
+## 57               Crime-SciFi
+## 58           Crime-Adventure
+## 59            Crime-Children
+## 60             Crime-Fantasy
+## 61                 Crime-War
+## 62           Crime-Animation
+## 63             Crime-Musical
+## 64             Crime-Western
+## 65             Crime-Mystery
+## 66            Crime-FilmNoir
+## 67              Crime-Horror
+## 68         Crime-Documentary
+## 69                Crime-IMAX
+## 70            Crime-NoGenres
+## 71            Thriller-Drama
+## 72            Thriller-SciFi
+## 73        Thriller-Adventure
+## 74         Thriller-Children
+## 75          Thriller-Fantasy
+## 76              Thriller-War
+## 77        Thriller-Animation
+## 78          Thriller-Musical
+## 79          Thriller-Western
+## 80          Thriller-Mystery
+## 81         Thriller-FilmNoir
+## 82           Thriller-Horror
+## 83      Thriller-Documentary
+## 84             Thriller-IMAX
+## 85         Thriller-NoGenres
+## 86               Drama-SciFi
+## 87           Drama-Adventure
+## 88            Drama-Children
+## 89             Drama-Fantasy
+## 90                 Drama-War
+## 91           Drama-Animation
+## 92             Drama-Musical
+## 93             Drama-Western
+## 94             Drama-Mystery
+## 95            Drama-FilmNoir
+## 96              Drama-Horror
+## 97         Drama-Documentary
+## 98                Drama-IMAX
+## 99            Drama-NoGenres
+## 100          SciFi-Adventure
+## 101           SciFi-Children
+## 102            SciFi-Fantasy
+## 103                SciFi-War
+## 104          SciFi-Animation
+## 105            SciFi-Musical
+## 106            SciFi-Western
+## 107            SciFi-Mystery
+## 108           SciFi-FilmNoir
+## 109             SciFi-Horror
+## 110        SciFi-Documentary
+## 111               SciFi-IMAX
+## 112           SciFi-NoGenres
+## 113       Adventure-Children
+## 114        Adventure-Fantasy
+## 115            Adventure-War
+## 116      Adventure-Animation
+## 117        Adventure-Musical
+## 118        Adventure-Western
+## 119        Adventure-Mystery
+## 120       Adventure-FilmNoir
+## 121         Adventure-Horror
+## 122    Adventure-Documentary
+## 123           Adventure-IMAX
+## 124       Adventure-NoGenres
+## 125         Children-Fantasy
+## 126             Children-War
+## 127       Children-Animation
+## 128         Children-Musical
+## 129         Children-Western
+## 130         Children-Mystery
+## 131        Children-FilmNoir
+## 132          Children-Horror
+## 133     Children-Documentary
+## 134            Children-IMAX
+## 135        Children-NoGenres
+## 136              Fantasy-War
+## 137        Fantasy-Animation
+## 138          Fantasy-Musical
+## 139          Fantasy-Western
+## 140          Fantasy-Mystery
+## 141         Fantasy-FilmNoir
+## 142           Fantasy-Horror
+## 143      Fantasy-Documentary
+## 144             Fantasy-IMAX
+## 145         Fantasy-NoGenres
+## 146            War-Animation
+## 147              War-Musical
+## 148              War-Western
+## 149              War-Mystery
+## 150             War-FilmNoir
+## 151               War-Horror
+## 152          War-Documentary
+## 153                 War-IMAX
+## 154             War-NoGenres
+## 155        Animation-Musical
+## 156        Animation-Western
+## 157        Animation-Mystery
+## 158       Animation-FilmNoir
+## 159         Animation-Horror
+## 160    Animation-Documentary
+## 161           Animation-IMAX
+## 162       Animation-NoGenres
+## 163          Musical-Western
+## 164          Musical-Mystery
+## 165         Musical-FilmNoir
+## 166           Musical-Horror
+## 167      Musical-Documentary
+## 168             Musical-IMAX
+## 169         Musical-NoGenres
+## 170          Western-Mystery
+## 171         Western-FilmNoir
+## 172           Western-Horror
+## 173      Western-Documentary
+## 174             Western-IMAX
+## 175         Western-NoGenres
+## 176         Mystery-FilmNoir
+## 177           Mystery-Horror
+## 178      Mystery-Documentary
+## 179             Mystery-IMAX
+## 180         Mystery-NoGenres
+## 181          FilmNoir-Horror
+## 182     FilmNoir-Documentary
+## 183            FilmNoir-IMAX
+## 184        FilmNoir-NoGenres
+## 185       Horror-Documentary
+## 186              Horror-IMAX
+## 187          Horror-NoGenres
+## 188         Documentary-IMAX
+## 189     Documentary-NoGenres
+## 190            IMAX-NoGenres
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_final}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          userId movieId rating                         title Comedy Romance
+##       1:      1     122    5.0              Boomerang (1992)   TRUE    TRUE
+##       2:      1     185    5.0               Net, The (1995)  FALSE   FALSE
+##       3:      1     292    5.0               Outbreak (1995)  FALSE   FALSE
+##       4:      1     316    5.0               Stargate (1994)  FALSE   FALSE
+##       5:      1     329    5.0 Star Trek: Generations (1994)  FALSE   FALSE
+##      ---                                                                   
+## 9000051:  32620   33140    3.5         Down and Derby (2005)   TRUE   FALSE
+## 9000052:  40976   61913    3.0           Africa addio (1966)  FALSE   FALSE
+## 9000053:  59269   63141    2.0 Rockin' in the Rockies (1945)   TRUE   FALSE
+## 9000054:  60713    4820    2.0  Won't Anybody Listen? (2000)  FALSE   FALSE
+## 9000055:  64621   39429    2.5                Confess (2005)  FALSE   FALSE
+##          Action Crime Thriller Drama SciFi Adventure Children Fantasy   War
+##       1:  FALSE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE FALSE
+##       2:   TRUE  TRUE     TRUE FALSE FALSE     FALSE    FALSE   FALSE FALSE
+##       3:   TRUE FALSE     TRUE  TRUE  TRUE     FALSE    FALSE   FALSE FALSE
+##       4:   TRUE FALSE    FALSE FALSE  TRUE      TRUE    FALSE   FALSE FALSE
+##       5:   TRUE FALSE    FALSE  TRUE  TRUE      TRUE    FALSE   FALSE FALSE
+##      ---                                                                   
+## 9000051:  FALSE FALSE    FALSE FALSE FALSE     FALSE     TRUE   FALSE FALSE
+## 9000052:  FALSE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE FALSE
+## 9000053:  FALSE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE FALSE
+## 9000054:  FALSE FALSE    FALSE FALSE FALSE     FALSE    FALSE   FALSE FALSE
+## 9000055:  FALSE FALSE     TRUE  TRUE FALSE     FALSE    FALSE   FALSE FALSE
+##          Animation Musical Western Mystery FilmNoir Horror Documentary  IMAX
+##       1:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+##       2:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+##       3:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+##       4:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+##       5:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+##      ---                                                                    
+## 9000051:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+## 9000052:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE        TRUE FALSE
+## 9000053:     FALSE    TRUE    TRUE   FALSE    FALSE  FALSE       FALSE FALSE
+## 9000054:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE        TRUE FALSE
+## 9000055:     FALSE   FALSE   FALSE   FALSE    FALSE  FALSE       FALSE FALSE
+##          NoGenres RelYear Year
+##       1:    FALSE    1992 1996
+##       2:    FALSE    1995 1996
+##       3:    FALSE    1995 1996
+##       4:    FALSE    1994 1996
+##       5:    FALSE    1994 1996
+##      ---                      
+## 9000051:    FALSE    2005 2007
+## 9000052:    FALSE    1966 2008
+## 9000053:    FALSE    1945 2008
+## 9000054:    FALSE    2000 2005
+## 9000055:    FALSE    2005 2008
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edxDistyear}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Genre Year  Count
+## 1  Action-Adventure 1996 134416
+## 2  Action-Adventure 1997  63509
+## 3  Action-Adventure 1998  20504
+## 4  Action-Adventure 1999  75659
+## 5  Action-Adventure 2000 127744
+## 6  Action-Adventure 2001  77061
+## 7  Action-Adventure 2002  56163
+## 8  Action-Adventure 2003  69909
+## 9  Action-Adventure 2004  91471
+## 10 Action-Adventure 2005 143756
+## 11 Action-Adventure 2006  96649
+## 12 Action-Adventure 2007  91853
+## 13 Action-Adventure 2008 104777
+## 14 Action-Adventure 2009   1771
+## 15  Action-Thriller 1996 159787
+## 16  Action-Thriller 1997  62863
+## 17  Action-Thriller 1998  23750
+## 18  Action-Thriller 1999  69621
+## 19  Action-Thriller 2000 120888
+## 20  Action-Thriller 2001  70887
+## 21  Action-Thriller 2002  51034
+## 22  Action-Thriller 2003  63225
+## 23  Action-Thriller 2004  80701
+## 24  Action-Thriller 2005 128871
+## 25  Action-Thriller 2006  87680
+## 26  Action-Thriller 2007  84987
+## 27  Action-Thriller 2008  97365
+## 28  Action-Thriller 2009   1632
+## 29     Comedy-Drama 1996 111796
+## 30     Comedy-Drama 1997  44130
+## 31     Comedy-Drama 1998  20319
+## 32     Comedy-Drama 1999  91323
+## 33     Comedy-Drama 2000 138534
+## 34     Comedy-Drama 2001  75154
+## 35     Comedy-Drama 2002  57247
+## 36     Comedy-Drama 2003  73861
+## 37     Comedy-Drama 2004  78707
+## 38     Comedy-Drama 2005 115245
+## 39     Comedy-Drama 2006  73611
+## 40     Comedy-Drama 2007  67756
+## 41     Comedy-Drama 2008  73035
+## 42     Comedy-Drama 2009   1462
+## 43   Comedy-Romance 1996 126433
+## 44   Comedy-Romance 1997  46863
+## 45   Comedy-Romance 1998  20480
+## 46   Comedy-Romance 1999  83786
+## 47   Comedy-Romance 2000 121170
+## 48   Comedy-Romance 2001  70727
+## 49   Comedy-Romance 2002  52786
+## 50   Comedy-Romance 2003  66253
+## 51   Comedy-Romance 2004  75928
+## 52   Comedy-Romance 2005 114222
+## 53   Comedy-Romance 2006  72092
+## 54   Comedy-Romance 2007  63199
+## 55   Comedy-Romance 2008  68755
+## 56   Comedy-Romance 2009   1474
+## 57    Romance-Drama 1996  97467
+## 58    Romance-Drama 1997  47789
+## 59    Romance-Drama 1998  22097
+## 60    Romance-Drama 1999  85233
+## 61    Romance-Drama 2000 118492
+## 62    Romance-Drama 2001  65216
+## 63    Romance-Drama 2002  50434
+## 64    Romance-Drama 2003  59989
+## 65    Romance-Drama 2004  68430
+## 66    Romance-Drama 2005 101493
+## 67    Romance-Drama 2006  67790
+## 68    Romance-Drama 2007  61176
+## 69    Romance-Drama 2008  67112
+## 70    Romance-Drama 2009   1316
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#colnames(edx_final) <- c(Genres = NULL)}
+\CommentTok{#rm(edx_final)}
+\CommentTok{#we need to restructure the date set}
+
+\CommentTok{##########Move the below to somewhere up}
+
+\KeywordTok{rm}\NormalTok{(edx_Master)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in rm(edx_Master): object 'edx_Master' not found
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx_Master <-}\StringTok{ }\NormalTok{edx_final}
+\NormalTok{edx_Master}\OperatorTok{$}\NormalTok{Genre <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
+
+\NormalTok{i <-}\StringTok{ }\DecValTok{24}
+\ControlFlowTok{while}\NormalTok{(i }\OperatorTok{>=}\StringTok{ }\DecValTok{5}\NormalTok{)\{}
+\NormalTok{  j <-}\StringTok{ }\NormalTok{i}\DecValTok{-1}
+    \ControlFlowTok{while}\NormalTok{(j }\OperatorTok{>=}\DecValTok{5}\NormalTok{)\{}
+\NormalTok{    x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(edx_Master)[j],}\KeywordTok{colnames}\NormalTok{(edx_Master)[i]) }
+\NormalTok{    df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{paste}\NormalTok{(x,}\DataTypeTok{collapse =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{    edx_Master <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Genre =} \KeywordTok{ifelse}\NormalTok{(edx_Master[[j]]}\OperatorTok{==}\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{edx_Master[[i]]}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{,df,Genre))}
+\NormalTok{    j <-}\StringTok{ }\NormalTok{j}\DecValTok{-1}
+\NormalTok{  \}}
+\NormalTok{i <-}\StringTok{ }\NormalTok{i }\DecValTok{-1}
+\NormalTok{\}}
+\CommentTok{###################################### Cleaning Data }
+
+\CommentTok{#edx_Master <- edx_Master %>% filter(Genre != "NA")}
+\NormalTok{edx_Master[,}\DecValTok{5}\OperatorTok{:}\DecValTok{24}\NormalTok{] <-}\StringTok{ }\OtherTok{NULL}
+\NormalTok{edx_Master}\OperatorTok{$}\NormalTok{title <-}\StringTok{ }\OtherTok{NULL}
+
+\CommentTok{#edx_Master$rating <-as.factor(edx_Master$rating)}
+\CommentTok{#edx_Master$rating <-as.factor(edx_Master$rating)}
+\KeywordTok{str}\NormalTok{(edx_Master)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Classes 'data.table' and 'data.frame':   9000055 obs. of  6 variables:
+##  $ userId : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ movieId: num  122 185 292 316 329 355 356 362 364 370 ...
+##  $ rating : num  5 5 5 5 5 5 5 5 5 5 ...
+##  $ RelYear: Factor w/ 94 levels "1915","1916",..: 78 81 81 80 80 80 80 80 80 80 ...
+##  $ Year   : Factor w/ 15 levels "1995","1996",..: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ Genre  :List of 9000055
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Action-Crime": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Action-Drama": 1
+##   ..$ : Factor w/ 1 level "Comedy-Children": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Romance-Adventure": 1
+##   ..$ : Factor w/ 1 level "Drama-Adventure": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Romance-Action": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Comedy-Adventure": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Drama-Children": 1
+##   ..$ : Factor w/ 1 level "Children-Animation": 1
+##   ..$ : Factor w/ 1 level "Action-Drama": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Drama-Adventure": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Romance-Action": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Romance-Drama": 1
+##   ..$ : Factor w/ 1 level "Action-Adventure": 1
+##   ..$ : Factor w/ 1 level "Comedy-Children": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Action-Drama": 1
+##   ..$ : Factor w/ 1 level "Romance-Action": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Comedy-Crime": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Crime-Thriller": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Comedy-Musical": 1
+##   ..$ : Factor w/ 1 level "Romance-Action": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Romance-Thriller": 1
+##   ..$ : Factor w/ 1 level "Romance-Thriller": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Romance-Drama": 1
+##   ..$ : Factor w/ 1 level "Romance-Drama": 1
+##   ..$ : Factor w/ 1 level "Comedy-Crime": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Comedy-Drama": 1
+##   ..$ : Factor w/ 1 level "Romance-Drama": 1
+##   ..$ : Factor w/ 1 level "Action-Adventure": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Comedy-Adventure": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Action-Adventure": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Romance-Drama": 1
+##   ..$ : Factor w/ 1 level "Thriller-Drama": 1
+##   ..$ : Factor w/ 1 level "Thriller-Drama": 1
+##   ..$ : Factor w/ 1 level "Drama-War": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Action-Drama": 1
+##   ..$ : Factor w/ 1 level "Drama-Adventure": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Thriller-Drama": 1
+##   ..$ : Factor w/ 1 level "Action-Crime": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Drama-Horror": 1
+##   ..$ : Factor w/ 1 level "Romance-Drama": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Comedy-Drama": 1
+##   ..$ : Factor w/ 1 level "Action-Drama": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Drama-Adventure": 1
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Romance-Action": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : chr NA
+##   ..$ : Factor w/ 1 level "Comedy-Action": 1
+##   ..$ : Factor w/ 1 level "Comedy-SciFi": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Action-Thriller": 1
+##   ..$ : Factor w/ 1 level "Comedy-Drama": 1
+##   ..$ : Factor w/ 1 level "Comedy-Children": 1
+##   ..$ : Factor w/ 1 level "Comedy-Romance": 1
+##   ..$ : Factor w/ 1 level "Comedy-Adventure": 1
+##   ..$ : Factor w/ 1 level "Action-SciFi": 1
+##   ..$ : Factor w/ 1 level "Drama-Adventure": 1
+##   .. [list output truncated]
+##  - attr(*, ".internal.selfref")=<externalptr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{###########################################################}
+
+
+
+\NormalTok{RMSE <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(true_ratings, predicted_ratings)\{}
+  \KeywordTok{sqrt}\NormalTok{(}\KeywordTok{mean}\NormalTok{((true_ratings }\OperatorTok{-}\StringTok{ }\NormalTok{predicted_ratings)}\OperatorTok{^}\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+
+
+\NormalTok{lambda <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\FloatTok{0.25}\NormalTok{)}
+
+\NormalTok{root <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(lambda, }\ControlFlowTok{function}\NormalTok{(l)\{}
+\NormalTok{  mu <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(edx_Master}\OperatorTok{$}\NormalTok{rating)}
+\NormalTok{  AdjustG <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustG =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustU <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"RelYear"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(userId) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustU =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustM <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"RelYear"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by=}\StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Genre) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustM =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\NormalTok{AdjustU }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  prediction <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by =} \StringTok{"RelYear"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by =} \StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustM, }\DataTypeTok{by =} \StringTok{"Genre"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{predict =}\NormalTok{ AdjustG }\OperatorTok{+}\StringTok{ }\NormalTok{AdjustU }\OperatorTok{+}\NormalTok{AdjustM }\OperatorTok{+}\StringTok{ }\NormalTok{mu) }\OperatorTok{%>%}\StringTok{ }\NormalTok{.}\OperatorTok{$}\NormalTok{predict}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{RMSE}\NormalTok{(prediction, edx_Master}\OperatorTok{$}\NormalTok{rating))}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(lambda, root)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-17.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(root)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9471813
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda[}\KeywordTok{which.min}\NormalTok{(root)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.75
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##########################################################}
+
+
+\NormalTok{root <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(lambda, }\ControlFlowTok{function}\NormalTok{(l)\{}
+\NormalTok{  mu <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(edx_Master}\OperatorTok{$}\NormalTok{rating)}
+\NormalTok{  AdjustG <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(movieId) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustG =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustU <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(userId) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustU =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustM <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by=}\StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(Genre) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustM =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\NormalTok{AdjustU }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  prediction <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by =} \StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by =} \StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustM, }\DataTypeTok{by =} \StringTok{"Genre"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{predict =}\NormalTok{ AdjustG }\OperatorTok{+}\StringTok{ }\NormalTok{AdjustU }\OperatorTok{+}\NormalTok{AdjustM }\OperatorTok{+}\StringTok{ }\NormalTok{mu) }\OperatorTok{%>%}\StringTok{ }\NormalTok{.}\OperatorTok{$}\NormalTok{predict}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{RMSE}\NormalTok{(prediction, edx_Master}\OperatorTok{$}\NormalTok{rating))}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(lambda, root)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-18.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(root)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8565638
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda[}\KeywordTok{which.min}\NormalTok{(root)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##########################################################}
+
+\NormalTok{root <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(lambda, }\ControlFlowTok{function}\NormalTok{(l)\{}
+\NormalTok{  mu <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(edx_Master}\OperatorTok{$}\NormalTok{rating)}
+\NormalTok{  AdjustG <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(movieId) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustG =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustU <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(userId) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustU =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustM <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by=}\StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustM =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\NormalTok{AdjustU }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  prediction <-}\StringTok{ }\NormalTok{edx_Master }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by =} \StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by =} \StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustM, }\DataTypeTok{by =} \StringTok{"RelYear"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{predict =}\NormalTok{ AdjustG }\OperatorTok{+}\StringTok{ }\NormalTok{AdjustU }\OperatorTok{+}\NormalTok{AdjustM }\OperatorTok{+}\StringTok{ }\NormalTok{mu) }\OperatorTok{%>%}\StringTok{ }\NormalTok{.}\OperatorTok{$}\NormalTok{predict}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{RMSE}\NormalTok{(prediction, edx_Master}\OperatorTok{$}\NormalTok{rating))}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(lambda, root)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MovieL_files/figure-latex/unnamed-chunk-1-19.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(root)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8563739
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda[}\KeywordTok{which.min}\NormalTok{(root)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.25
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##########################################################}
+
+\NormalTok{lambda <-}\StringTok{ }\NormalTok{lambda[}\KeywordTok{which.min}\NormalTok{(root)]}
+
+\CommentTok{#we need to modify the validation set to include Release year}
+
+\KeywordTok{dim}\NormalTok{(validation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 999999      6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(validation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    userId movieId rating timestamp
+## 1:      1     231      5 838983392
+## 2:      1     480      5 838983653
+## 3:      1     586      5 838984068
+## 4:      2     151      3 868246450
+## 5:      2     858      2 868245645
+## 6:      2    1544      3 868245920
+##                                                      title
+## 1:                                    Dumb & Dumber (1994)
+## 2:                                    Jurassic Park (1993)
+## 3:                                       Home Alone (1990)
+## 4:                                          Rob Roy (1995)
+## 5:                                   Godfather, The (1972)
+## 6: Lost World: Jurassic Park, The (Jurassic Park 2) (1997)
+##                                     genres
+## 1:                                  Comedy
+## 2:        Action|Adventure|Sci-Fi|Thriller
+## 3:                         Children|Comedy
+## 4:                Action|Drama|Romance|War
+## 5:                             Crime|Drama
+## 6: Action|Adventure|Horror|Sci-Fi|Thriller
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RelYear <-}\StringTok{ }\KeywordTok{substr}\NormalTok{(validation}\OperatorTok{$}\NormalTok{title, }\KeywordTok{nchar}\NormalTok{(validation}\OperatorTok{$}\NormalTok{title)}\OperatorTok{-}\DecValTok{4}\NormalTok{,}\KeywordTok{nchar}\NormalTok{(validation}\OperatorTok{$}\NormalTok{title)}\OperatorTok{-}\DecValTok{1}\NormalTok{) }\CommentTok{#Extract release year of Title}
+\NormalTok{validation}\OperatorTok{$}\NormalTok{RelYear <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(RelYear)}
+
+\NormalTok{Fdate <-}\StringTok{ }\KeywordTok{anydate}\NormalTok{(validation}\OperatorTok{$}\NormalTok{timestamp)}
+\NormalTok{validation}\OperatorTok{$}\NormalTok{Year <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(}\KeywordTok{format}\NormalTok{(Fdate, }\StringTok{"%Y"}\NormalTok{)) }\CommentTok{#Creating a column that will contain Year}
+
+
+\NormalTok{root <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(lambda, }\ControlFlowTok{function}\NormalTok{(l)\{}
+\NormalTok{  mu <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(validation}\OperatorTok{$}\NormalTok{rating)}
+\NormalTok{  AdjustG <-}\StringTok{ }\NormalTok{validation }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(movieId) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustG =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustU <-}\StringTok{ }\NormalTok{validation }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(userId) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustU =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  AdjustM <-}\StringTok{ }\NormalTok{validation }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by=}\StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by=}\StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(RelYear) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{AdjustM =} \KeywordTok{sum}\NormalTok{(rating }\OperatorTok{-}\StringTok{ }\NormalTok{AdjustG }\OperatorTok{-}\NormalTok{AdjustU }\OperatorTok{-}\StringTok{ }\NormalTok{mu)}\OperatorTok{/}\NormalTok{(}\KeywordTok{n}\NormalTok{()}\OperatorTok{+}\NormalTok{l))}
+  
+\NormalTok{  prediction <-}\StringTok{ }\NormalTok{validation }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustG, }\DataTypeTok{by =} \StringTok{"movieId"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(AdjustU, }\DataTypeTok{by =} \StringTok{"userId"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(AdjustM, }\DataTypeTok{by =} \StringTok{"RelYear"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{predict =}\NormalTok{ AdjustG }\OperatorTok{+}\StringTok{ }\NormalTok{AdjustU }\OperatorTok{+}\NormalTok{AdjustM }\OperatorTok{+}\StringTok{ }\NormalTok{mu) }\OperatorTok{%>%}\StringTok{ }\NormalTok{.}\OperatorTok{$}\NormalTok{predict}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{RMSE}\NormalTok{(prediction, validation}\OperatorTok{$}\NormalTok{rating))}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(validation, }\DataTypeTok{file =} \StringTok{"submission.csv"}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
